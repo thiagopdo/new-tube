@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Video Sharing Platform
+
+A full-stack video sharing platform inspired by YouTube, built with modern web technologies. This project allows users to upload, view, and interact with videos, manage playlists, and subscribe to other users.
+
+---
+
+## Features
+
+- **User Authentication**: Secure sign-in and sign-up using Clerk.
+- **Video Upload & Management**: Upload videos (with Mux integration), edit details, and manage visibility.
+- **Categories**: Videos are organized into categories (e.g., Music, Gaming, Education).
+- **Reactions**: Like or dislike videos, with real-time feedback.
+- **Subscriptions**: Subscribe to channels and manage your subscriptions.
+- **Playlists**: Like videos and view your liked playlist.
+- **Responsive UI**: Modern, mobile-friendly interface using React and Tailwind CSS.
+
+---
+
+## Tech Stack
+
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS
+- **Backend**: tRPC, Node.js
+- **Database**: Drizzle ORM (with PostgreSQL or SQLite)
+- **Authentication**: Clerk
+- **Video Processing**: Mux
+- **Icons/UI**: Lucide, Sonner (for toasts)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js (v18+ recommended)
+- Yarn or npm
+- PostgreSQL (or SQLite, depending on configuration)
+- Mux account (for video uploads)
+- Clerk account (for authentication)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/your-username/video-platform.git
+   cd video-platform
+   ```
 
-## Learn More
+2. **Install dependencies:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   yarn install
+   # or
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Set up environment variables:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   Create a `.env` file in the root directory and configure the following:
 
-## Deploy on Vercel
+   ```
+   DATABASE_URL=your_database_url
+   CLERK_SECRET_KEY=your_clerk_secret
+   MUX_TOKEN_ID=your_mux_token_id
+   MUX_TOKEN_SECRET=your_mux_token_secret
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Run database migrations and seed categories:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   # Run migrations (if using Drizzle CLI or your migration tool)
+   yarn db:migrate
+
+   # Seed categories
+   yarn tsx src/scripts/seed-categories.ts
+   ```
+
+5. **Start the development server:**
+
+   ```bash
+   yarn dev
+   # or
+   npm run dev
+   ```
+
+6. **Visit the app:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Project Structure
