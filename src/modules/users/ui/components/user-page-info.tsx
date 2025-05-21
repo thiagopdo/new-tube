@@ -34,10 +34,10 @@ export function UserPageInfoSkeleton() {
       <div className="hidden md:flex items-start gap-4">
         <Skeleton className="h-[160px] w-[160px] rounded-full" />
         <div className="flex-1 min-w-0">
-            <Skeleton className="h-8 w-64" />
-            <Skeleton className="h-5 w-48 mt-4" />
-            <Skeleton className="h-10 w-32 mt-3 rounded-full" />
-          </div>
+          <Skeleton className="h-8 w-64" />
+          <Skeleton className="h-5 w-48 mt-4" />
+          <Skeleton className="h-10 w-32 mt-3 rounded-full" />
+        </div>
       </div>
     </div>
   );
@@ -81,7 +81,9 @@ export function UserPageInfo({ user }: UserPageBannerProps) {
             asChild
             className="w-full mt-3 rounded-full"
           >
-            <Link href="/studio">Go to studio</Link>
+            <Link prefetch href="/studio">
+              Go to studio
+            </Link>
           </Button>
         ) : (
           <SubscriptionButton
@@ -118,7 +120,9 @@ export function UserPageInfo({ user }: UserPageBannerProps) {
           </div>
           {userId === user.clerkId ? (
             <Button variant="secondary" asChild className="mt-3 rounded-full">
-              <Link href="/studio">Go to studio</Link>
+              <Link prefetch href="/studio">
+                Go to studio
+              </Link>
             </Button>
           ) : (
             <SubscriptionButton
